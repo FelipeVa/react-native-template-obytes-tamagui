@@ -21,7 +21,7 @@ Mobile App </h1>
 Clone the repo to your machine and install deps :
 
 ```sh
-git clone https://github.com/user/repo-name
+git clone https://github.com/FelipeVa/react-native-template-obytes-tamagui.git repo-name
 
 cd ./repo-name
 
