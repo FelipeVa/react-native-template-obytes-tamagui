@@ -1,5 +1,5 @@
 {
-  "name": "react-native-template-obytes-tamagui",
+  "name": "ocmi-forms",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -37,7 +37,6 @@
     "e2e-test": "maestro test .maestro/ -e APP_ID=com.obytes.development"
   },
   "dependencies": {
-    "@bacons/link-assets": "^1.1.0",
     "@gorhom/bottom-sheet": "^4.5.1",
     "@hookform/resolvers": "^2.9.11",
     "@react-navigation/bottom-tabs": "^6.5.9",
@@ -65,7 +64,6 @@
     "expo-system-ui": "~2.4.0",
     "i18next": "^22.5.1",
     "lodash.memoize": "^4.1.2",
-    "nativewind": "^2.0.10",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-error-boundary": "^3.1.4",
