@@ -4,12 +4,17 @@ import type { RenderOptions } from '@testing-library/react-native';
 import { render } from '@testing-library/react-native';
 import type { ReactElement } from 'react';
 import React from 'react';
+import { TamaguiProvider } from 'tamagui';
+
+import tamaguiConfig from '../../tamagui.config';
 
 const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
   return (
-    <BottomSheetModalProvider>
-      <NavigationContainer>{children}</NavigationContainer>
-    </BottomSheetModalProvider>
+    <TamaguiProvider config={tamaguiConfig}>
+      <BottomSheetModalProvider>
+        <NavigationContainer>{children}</NavigationContainer>
+      </BottomSheetModalProvider>
+    </TamaguiProvider>
   );
 };
 
