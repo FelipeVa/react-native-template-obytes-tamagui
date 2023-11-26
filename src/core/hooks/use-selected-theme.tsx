@@ -1,4 +1,3 @@
-import { NativeWindStyleSheet } from 'nativewind';
 import React from 'react';
 import { useColorScheme } from 'react-native';
 import { useMMKVString } from 'react-native-mmkv';
@@ -6,7 +5,7 @@ import { useMMKVString } from 'react-native-mmkv';
 import { storage } from '../storage';
 
 const SELECTED_THEME = 'SELECTED_THEME';
-export type ColorSchemeType = 'light' | 'dark' | 'system';
+export type ColorSchemeType = 'light' | 'dark';
 /**
  * this hooks should only be used while selecting the theme
  * This hooks will return the selected theme which is stored in MMKV
@@ -29,12 +28,4 @@ export const useSelectedTheme = () => {
     theme && theme === 'system' ? colorScheme : theme
   ) as ColorSchemeType;
   return { selectedTheme, setSelectedTheme } as const;
-};
-// to be used in the root file to load the selected theme from MMKV
-export const loadSelectedTheme = () => {
-  const theme = storage.getString(SELECTED_THEME);
-  if (theme !== undefined) {
-    console.log('theme', theme);
-    NativeWindStyleSheet.setColorScheme(theme as ColorSchemeType);
-  }
 };

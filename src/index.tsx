@@ -3,7 +3,7 @@ import 'react-native-gesture-handler';
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import * as SplashScreen from 'expo-splash-screen';
 import React, { Suspense } from 'react';
-import { StyleSheet, useColorScheme } from 'react-native';
+import { StyleSheet } from 'react-native';
 import FlashMessage from 'react-native-flash-message';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { TamaguiProvider, Text, Theme } from 'tamagui';
@@ -19,17 +19,9 @@ SplashScreen.preventAutoHideAsync();
 
 const App = () => {
   const { selectedTheme } = useSelectedTheme();
-  const colorScheme = useColorScheme();
-
-  console.log(selectedTheme, colorScheme);
 
   return (
-    <TamaguiProvider
-      defaultTheme={
-        selectedTheme === 'system' ? (colorScheme as string) : selectedTheme
-      }
-      config={tamaguiConfig}
-    >
+    <TamaguiProvider defaultTheme={selectedTheme} config={tamaguiConfig}>
       <GestureHandlerRootView style={styles.container}>
         <Suspense fallback={<Text>Loading...</Text>}>
           <Theme name="red">
