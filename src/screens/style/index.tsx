@@ -1,5 +1,6 @@
 import React from 'react';
-import { ScrollView, YStack } from 'tamagui';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { ScrollView, Stack, YStack } from 'tamagui';
 
 import { FocusAwareStatusBar } from '@/ui';
 
@@ -9,17 +10,21 @@ import { InputVariants } from './input-variants';
 import { TextVariants } from './text-variants';
 
 export const Style = () => {
+  const insets = useSafeAreaInsets();
+
   return (
     <>
       <FocusAwareStatusBar />
-      <ScrollView>
-        <YStack flex={1} px="$2" pt="$10">
-          <TextVariants />
-          <ColorVariants />
-          <InputVariants />
-          <ButtonVariants />
-        </YStack>
-      </ScrollView>
+      <Stack paddingTop={insets.top}>
+        <ScrollView>
+          <YStack flex={1} px="$2" gap="$2">
+            <TextVariants />
+            <ColorVariants />
+            <InputVariants />
+            <ButtonVariants />
+          </YStack>
+        </ScrollView>
+      </Stack>
     </>
   );
 };

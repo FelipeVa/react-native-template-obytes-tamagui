@@ -4,7 +4,7 @@ import { H2, Paragraph, SizableText, YStack } from 'tamagui';
 
 import { usePost } from '@/api';
 import type { RouteProp } from '@/navigation/types';
-import { ActivityIndicator, FocusAwareStatusBar } from '@/ui';
+import { ActivityIndicator, FocusAwareStatusBar, SafeAreaView } from '@/ui';
 
 export const Post = () => {
   const { params } = useRoute<RouteProp<'Post'>>();
@@ -29,10 +29,12 @@ export const Post = () => {
   }
 
   return (
-    <YStack flex={1} p="$4">
-      <FocusAwareStatusBar />
-      <H2>{data.title}</H2>
-      <Paragraph>{data.body} </Paragraph>
-    </YStack>
+    <SafeAreaView>
+      <YStack flex={1} p="$4">
+        <FocusAwareStatusBar />
+        <H2>{data.title}</H2>
+        <Paragraph>{data.body} </Paragraph>
+      </YStack>
+    </SafeAreaView>
   );
 };

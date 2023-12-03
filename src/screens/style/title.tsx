@@ -7,12 +7,7 @@ type TitleProps = {
 
 export const Title = ({ text }: TitleProps) => {
   return (
-    <Stack
-      flexDirection="row"
-      alignItems="center"
-      paddingTop="$4"
-      paddingBottom="$2"
-    >
+    <Stack flexDirection="row" alignItems="center" paddingBottom="$2">
       <H3 pr="$1">{text}</H3>
       <View flex={1} height={2} />
     </Stack>

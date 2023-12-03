@@ -11,7 +11,8 @@ import {
   Star,
 } from '@tamagui/lucide-icons';
 import * as React from 'react';
-import { H4, H5, ListItem, ScrollView, YGroup, YStack } from 'tamagui';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { H4, H5, ListItem, ScrollView, Stack, YGroup, YStack } from 'tamagui';
 
 import { translate, useAuth } from '@/core';
 import { FocusAwareStatusBar } from '@/ui';
@@ -104,44 +105,46 @@ const SettingsLinks = () => {
 
 export const Settings = () => {
   const signOut = useAuth.use.signOut();
+  const insets = useSafeAreaInsets();
 
   return (
     <>
       <FocusAwareStatusBar />
+      <Stack paddingTop={insets.top}>
+        <ScrollView>
+          <YStack px="$2" gap="$4">
+            <YStack>
+              <H4>{translate('settings.title')}</H4>
+              <H5>{translate('settings.generale')}</H5>
+              <YGroup bordered size="$4">
+                <YGroup.Item>
+                  <LanguageItem />
+                  <ThemeItem />
+                </YGroup.Item>
+              </YGroup>
+            </YStack>
 
-      <ScrollView>
-        <YStack pt="$10" px="$2" gap="$4">
-          <YStack>
-            <H4>{translate('settings.title')}</H4>
-            <H5>{translate('settings.generale')}</H5>
-            <YGroup bordered size="$4">
-              <YGroup.Item>
-                <LanguageItem />
-                <ThemeItem />
-              </YGroup.Item>
-            </YGroup>
+            <SettingsAbout />
+
+            <SettingsSupportUs />
+
+            <SettingsLinks />
+
+            <YStack pb="$3">
+              <YGroup bordered size="$4">
+                <YGroup.Item>
+                  <ListItem
+                    pressTheme
+                    icon={LogOut}
+                    title={translate('settings.logout')}
+                    onPress={signOut}
+                  />
+                </YGroup.Item>
+              </YGroup>
+            </YStack>
           </YStack>
-
-          <SettingsAbout />
-
-          <SettingsSupportUs />
-
-          <SettingsLinks />
-
-          <YStack>
-            <YGroup bordered size="$4">
-              <YGroup.Item>
-                <ListItem
-                  pressTheme
-                  icon={LogOut}
-                  title={translate('settings.logout')}
-                  onPress={signOut}
-                />
-              </YGroup.Item>
-            </YGroup>
-          </YStack>
-        </YStack>
-      </ScrollView>
+        </ScrollView>
+      </Stack>
     </>
   );
 };
