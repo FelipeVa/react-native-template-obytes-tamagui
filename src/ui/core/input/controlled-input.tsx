@@ -35,6 +35,7 @@ export function ControlledInput<T extends FieldValues>(
   const { field, fieldState } = useController({ control, name, rules });
   return (
     <Input
+      id={props.id || name}
       name={name}
       ref={field.ref}
       autoCapitalize="none"
