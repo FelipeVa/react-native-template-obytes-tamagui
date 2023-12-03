@@ -1,7 +1,7 @@
 import * as React from 'react';
 import type { TextInput } from 'react-native';
+import type { InputProps } from 'tamagui';
 import { Fieldset, Input as TInput, Label, SizableText } from 'tamagui';
-import type { InputProps } from 'tamagui/src/views/Input';
 
 import { isRTL } from '@/core';
 

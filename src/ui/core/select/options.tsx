@@ -1,9 +1,13 @@
 import type { BottomSheetModal } from '@gorhom/bottom-sheet';
 import { BottomSheetFlatList } from '@gorhom/bottom-sheet';
 import { Check } from '@tamagui/lucide-icons';
-import type { ThemeableStackProps } from '@tamagui/stacks/src/ThemeableStack';
 import * as React from 'react';
-import { SizableText, ThemeableStack, useTheme } from 'tamagui';
+import {
+  SizableText,
+  ThemeableStack,
+  type ThemeableStackProps,
+  useTheme,
+} from 'tamagui';
 
 import { Modal } from '../modal';
 
